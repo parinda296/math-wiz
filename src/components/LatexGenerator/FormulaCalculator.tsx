@@ -8,6 +8,7 @@ import { variableRegex } from '../../utils/constants';
 import Result from './Result';
 import LatexFormula from './LatexFormula';
 import Input from '../UI/Input';
+import './FormulaCalculator.css';
 
 
 const FormulaCalculator: React.FC = () => {
@@ -69,7 +70,7 @@ const FormulaCalculator: React.FC = () => {
                 onChange={handleFormulaChange}
                 placeholder="Enter formula, e.g., a + b * c^2"
                 className='w-full p-2 mb-2.5 max-w-[350px]' />
-
+            {error && <p className='text-red-500'>{error}</p>}
             {/* Variable Inputs */}
             {Object.keys(variables)?.length ? <div>
                 <p className='p-2 font-bold'>Variables:</p>
@@ -89,7 +90,7 @@ const FormulaCalculator: React.FC = () => {
             </div> : ''}
 
             {/* Result */}
-            <Result error={error} result={result} />
+            {!error && <Result result={result} />}
         </div>
     );
 };
