@@ -69,11 +69,14 @@ const FormulaCalculator: React.FC = () => {
                 value={formula}
                 onChange={handleFormulaChange}
                 placeholder="Enter formula, e.g., a + b * c^2"
-                className='w-full p-2 mb-2.5 max-w-[350px]' />
+                className='w-full p-2 my-2.5 max-w-[350px]' />
+
+            {/* Validation Error */}
             {error && <p className='text-red-500'>{error}</p>}
+
             {/* Variable Inputs */}
             {Object.keys(variables)?.length ? <div>
-                <p className='p-2 font-bold'>Variables:</p>
+                <p className='p-2 font-bold text-left'>Variables:</p>
                 <div className={`grid grid-cols-3`}>
                     {Object.keys(variables).map((varName) => (
                         <div key={varName}>

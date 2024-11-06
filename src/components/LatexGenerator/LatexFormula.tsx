@@ -29,10 +29,12 @@ const LatexFormula = memo(
             }
         }, [input])
 
+        if(!input || !input.trim().length) return '';
+
         return (
             <div className='py-4'>
                 <p className='pb-2 text-left'>Formula (LaTeX Render):</p>
-                <p className='bg-gray-300 p-2 rounded' dangerouslySetInnerHTML={{ __html: latexFormula }}></p>
+                <p className='bg-gray-300 p-2 rounded text-left' dangerouslySetInnerHTML={{ __html: latexFormula }}></p>
             </div>
         )
     }

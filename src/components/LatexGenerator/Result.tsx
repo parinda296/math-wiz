@@ -6,6 +6,6 @@ interface Props {
 export default function Result({ result }: Props) {
     if (!result) return '';
     return (
-        <h3 className='text-xl font-bold pt-4'>Result: {result}</h3>
+        <h3 className='text-xl font-bold pt-4 text-left'>Result: {result}</h3>
     )
 }
