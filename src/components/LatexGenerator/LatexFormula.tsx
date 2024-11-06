@@ -1,10 +1,10 @@
-import React, { memo } from 'react'
+import React, { memo, useMemo } from 'react'
 import { divisionRegex, divisionWithExponentsRegex, exponentRegex } from '../../utils/constants';
 
 const LatexFormula = memo(
     function LatexFormula({ input }: { input: string }) {
 
-        const renderLatexFormula = () => {
+        const latexFormula = useMemo(() => {
             try {
                 // Replace `*` with LaTeX center dot symbol for multiplication
                 let latexFormula: string = input.replace(/\*/g, " &sdot; ");
@@ -27,12 +27,12 @@ const LatexFormula = memo(
                 console.log('latex generateion error', error);
                 return '';
             }
-        }
+        }, [input])
 
         return (
-            <div>
-                <p>Formula (LaTeX Render):</p>
-                <p dangerouslySetInnerHTML={{ __html: renderLatexFormula() }}></p>
+            <div className='p-4'>
+                <p className='pb-2'>Formula (LaTeX Render):</p>
+                <p dangerouslySetInnerHTML={{ __html: latexFormula }}></p>
             </div>
         )
     }

@@ -33,17 +33,13 @@ export const exponentiationRegex = /\d+(\.\d+)?\^\d+(\.\d+)?/;
 
 // Regex to match a number raised to an exponent, allowing for decimal numbers.
 // i.e. 2^3, 10^5
-export const exponentiationWithDecimalsRegex = /(\d+(\.\d+)?)\^(\d+(\.\d+)?)/;
+export const exponentiationWithDecimalsRegex = /(-?\d+(\.\d+)?)\^(-?\d+(\.\d+)?)/;
 
 // Regex to match a multiplication or division operation between two numbers, allowing for decimal numbers.
-export const multiplicationOrDivisionRegex = /(\d+(\.\d+)?[*/]\d+(\.\d+)?)/;
-
-// Regex to match a multiplication or division operation between two numbers with optional whitespace.
-export const multiplicationOrDivisionWithSpacesRegex = /(\d+(\.\d+)?)\s*([*/])\s*(\d+(\.\d+)?)/;
+export const multiplicationOrDivisionRegex = /(-?\d+(\.\d+)?)([*/])(-?\d+(\.\d+)?)/;
 
 // Regex to match a simple arithmetic expression involving addition or subtraction of two numbers.
-export const additionOrSubtractionRegex = /(-?\d+(\.\d+)?[+-]\d+(\.\d+)?)/;
+export const additionOrSubtractionRegex = /(-?\d+(\.\d+)?)([+-])(-?\d+(\.\d+)?)/;
 
-// Regex to match arithmetic expressions involving addition or subtraction
-// with optional whitespace around the operator.
-export const additionSubtractionRegexWithSpacesRegex = /(-?\d+(\.\d+)?)\s*([+-])\s*(\d+(\.\d+)?)/;
+//Regex to check for invalid operator sequences (like *+ or */) where operators are mixed
+export const invalidMixedOperatorPattern = /([*/^])([+\*/^])/

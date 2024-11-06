@@ -1,3 +1,3 @@
 export type Variables = {
-    [key: string]: number;
+    [key: string]: string;
 };
